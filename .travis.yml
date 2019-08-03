@@ -9,7 +9,7 @@ script:
   - docker run -e CI=true jullierme/react-for-docker-kubernetes-course npm run test
 
 deploy:
-  provier: elasticbeanstalk
+  provider: elasticbeanstalk
   region: "us-east-1"
   app: "react-for-docker-kubernetes-course"
   env: "frontend-env"
