@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run -e CI=true jullierme/react-for-docker-kubernetes-course npm run test
+
+deploy:
+  provier: elasticbeanstalk
+  region: "us-east-1"
+  app: "react-for-docker-kubernetes-course"
+  env: "frontend-env"
+  bucket_name: "react-for-docker-kubernetes-course-frontend"
+  bucket_path: "react-for-docker-kubernetes-course"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
